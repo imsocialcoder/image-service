@@ -50,6 +50,7 @@ There are some mocked images under resources folder.
 Existing predefined image types now are as follows:
 - thumbnail
 - large
+
 To test the application on your localhost, you can use the following requests:
 - http://localhost:8080/image/show/large/dept-blazer?reference=abcdefghijk.jpg
 - http://localhost:8080/image/show/thumbnail/bag?reference=abc.jpg
