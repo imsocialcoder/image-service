@@ -52,8 +52,8 @@ public class ImageController {
         return ResponseEntity.ok("Image flushed successfully");
     }
 
-    private boolean isValidPredefinedType(String predefinedTypeName) {
-        return StringUtils.hasText(predefinedTypeName);
+    private boolean isValidPredefinedType(String predefinedImageType) {
+        return StringUtils.hasText(predefinedImageType);
     }
 
     private boolean isValidReference(String reference) {
