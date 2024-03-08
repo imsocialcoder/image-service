@@ -62,20 +62,7 @@ public class ImageServiceImpl implements ImageService {
 
         return originalImage;
     }
-
-//    private byte[] downloadImage(String reference){
-//        if(!isImageExists(reference))
-//            throw new SourceImageNotFoundException(reference);
-//
-//        String sourceUrl = imageServiceDownloadConfiguration.getRootUrl();
-//        //TODO Download from source URL
-//        return new byte[0];
-//    }
-//
-//    private boolean isImageExists(String reference){
-//        return true;
-//    }
-
+    
     public void flushImage(String predefinedImageType, String reference) {
         awss3Service.flushImage(predefinedImageType, reference);
     }
