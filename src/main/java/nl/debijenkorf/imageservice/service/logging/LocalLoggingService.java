@@ -11,7 +11,12 @@ import org.springframework.stereotype.Service;
 @Profile("local")
 public class LocalLoggingService implements LoggingService{
     private final Logger logger = LoggerFactory.getLogger(LocalImageServiceExceptionHandler.class);
-    public void logException(Exception e, LogLevel logLevel){
-        //TODO Using the configuration log exception to DB
+
+    public void logException(Exception e, LogLevel logLevel) {
+        switch (logLevel) {
+            case INFO -> logger.info("Exception occurred: {}", e.getMessage(), e);
+            case WARN -> logger.warn("Exception occurred: {}", e.getMessage(), e);
+            default -> logger.error("Exception occurred: {}", e.getMessage(), e);
+        }
     }
 }
