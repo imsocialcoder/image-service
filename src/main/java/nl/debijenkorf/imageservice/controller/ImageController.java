@@ -4,11 +4,10 @@ import nl.debijenkorf.imageservice.service.image.ImageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 
-@Controller
+@RestController
 @RequestMapping("v1/image")
 public class ImageController {
 
@@ -20,7 +19,6 @@ public class ImageController {
     }
 
     @GetMapping(value = {"/show/{predefinedImageType}/{dummySeoName}/", "/show/{predefinedImageType}/"}, produces = {MediaType.IMAGE_JPEG_VALUE, MediaType.IMAGE_PNG_VALUE})
-    @ResponseBody
     public ResponseEntity<byte[]> getImage(
             @PathVariable String predefinedImageType,
             @PathVariable(required = false) String dummySeoName,
@@ -39,7 +37,6 @@ public class ImageController {
     }
 
     @DeleteMapping("/flush/{predefinedImageType}")
-    @ResponseBody
     public ResponseEntity<String> flushImage(
             @PathVariable String predefinedImageType,
             @RequestParam String reference
