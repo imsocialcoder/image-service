@@ -36,7 +36,7 @@ public class ImageController {
         return ResponseEntity.ok(imageData);
     }
 
-    @DeleteMapping("/flush/{predefinedImageType}")
+    @DeleteMapping("/flush/{predefinedImageType}/")
     public ResponseEntity<String> flushImage(
             @PathVariable String predefinedImageType,
             @RequestParam String reference
