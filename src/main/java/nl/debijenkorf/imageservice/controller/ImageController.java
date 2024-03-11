@@ -9,7 +9,7 @@ import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
-@RequestMapping("/image")
+@RequestMapping("v1/image")
 public class ImageController {
 
     private final ImageService imageService;
@@ -19,7 +19,7 @@ public class ImageController {
         this.imageService = imageService;
     }
 
-    @GetMapping(value = "/show/{predefinedImageType}/{dummySeoName}", produces = {MediaType.IMAGE_JPEG_VALUE, MediaType.IMAGE_PNG_VALUE})
+    @GetMapping(value = {"/show/{predefinedImageType}/{dummySeoName}/", "/show/{predefinedImageType}/"}, produces = {MediaType.IMAGE_JPEG_VALUE, MediaType.IMAGE_PNG_VALUE})
     @ResponseBody
     public ResponseEntity<byte[]> getImage(
             @PathVariable String predefinedImageType,
@@ -51,7 +51,7 @@ public class ImageController {
         if (!isValidReference(reference)) {
             return ResponseEntity.notFound().build();
         }
-        
+
         imageService.flushImage(predefinedImageType, reference);
         return ResponseEntity.ok("Image flushed successfully");
     }
@@ -62,5 +62,6 @@ public class ImageController {
 
     private boolean isValidReference(String reference) {
         return StringUtils.hasText(reference);
-    }}
+    }
+}
 

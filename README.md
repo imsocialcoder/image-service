@@ -52,6 +52,6 @@ Existing predefined image types now are as follows:
 - large
 
 To test the application on your localhost, you can use the following requests:
-- http://localhost:8080/image/show/large/dept-blazer?reference=abcdefghijk.jpg
-- http://localhost:8080/image/show/thumbnail/bag?reference=abc.jpg
-- http://localhost:8080/image/show/thumbnail/shop?reference=abcdefghi.jpg
+- http://localhost:8080/v1/image/show/large/dept-blazer/?reference=abcdefghijk.jpg
+- http://localhost:8080/v1/image/show/thumbnail/bag/?reference=abc.jpg
+- http://localhost:8080/v1/image/show/thumbnail/shop/?reference=abcdefghi.jpg
