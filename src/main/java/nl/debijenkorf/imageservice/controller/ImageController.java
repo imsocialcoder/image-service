@@ -48,6 +48,10 @@ public class ImageController {
             return ResponseEntity.notFound().build();
         }
 
+        if (!isValidReference(reference)) {
+            return ResponseEntity.notFound().build();
+        }
+        
         imageService.flushImage(predefinedImageType, reference);
         return ResponseEntity.ok("Image flushed successfully");
     }
